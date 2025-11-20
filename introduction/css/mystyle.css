@@ -1,10 +1,13 @@
 
 h1 {
-  color: rgb(57, 95, 69);
+  color: rgb(228, 149, 31);
   margin-left: 20px;
 }
 
 .center {
   text-align: center;
   color: black;
+}
+body {
+  background-color: rgb(57, 90, 57);
 }
