@@ -1,8 +1,12 @@
 body {
-  background-color: rgba(28, 55, 118, 1);
+  background-image: url('KanyeGrad.webp');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 h1 {
-  color: rgb(228, 149, 31);
+  color: black;
+  font-weight: bold;
   margin-left: 20px;
 }
 
@@ -10,3 +14,5 @@ h1 {
   text-align: center;
   color: black;
 }
+
+
