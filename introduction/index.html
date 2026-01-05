@@ -1,34 +1,120 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <title>Guevarra's Intro</title>
   <link rel="stylesheet" href="css/mystyle.css">
-<title>Guevarra's Intro</title>
 </head>
 <body>
-<h1>Introduction to Geoff Guevarra</h1>
-<div class="about-me">
-  <h2>About Me</h2>
-  <ul>
-    <li>BSIT Student of Asia Pacific College</li>
-    <li>Basketball Savant</li>
-    <li>Halimaw Magmahal</li>
-  </ul>
-</div>
-<div class="education-achievements">
-  <h2>Education / Achievements</h2>
-  <ol>
-    <li>Graduated at Treston International School</li>
-    <li>2nd Runner up ISAA Basketball HS Tournament</li>
-  </ol>
-</div>
-<div class="experience">
-  <h2>Course / IT Experience</h2>
-  <p>BSIT and grew up in a compute shop</p>
-</div>
-<div class="goals-dreams">
-  <h2>Goals / Dreams</h2>
-  <p>To give a better life to those around me and every person I can help</p>
-</div>
-  
+
+  <!-- Navigation -->
+  <nav>
+    <a href="#about">About</a>
+    <a href="#education">Education</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#guestbook">Guestbook</a>
+    <a href="resources.html">Resources</a>
+  </nav>
+
+  <header>
+    <h1>Introduction to Geoff Guevarra</h1>
+    <button id="toggleBtn">Toggle Background</button>
+  </header>
+
+  <main>
+    <section id="about" class="card">
+      <h2>About Me</h2>
+      <ul>
+        <li>BSIT Student of Asia Pacific College</li>
+        <li>Basketball Savant</li>
+        <li>Halimaw Magmahal</li>
+      </ul>
+    </section>
+
+    <section id="education" class="card">
+      <h2>Education / Achievements</h2>
+      <ol>
+        <li>Graduated at Treston International School</li>
+        <li>2nd Runner up ISAA Basketball HS Tournament</li>
+      </ol>
+    </section>
+
+    <section class="card">
+      <h2>Course / IT Experience</h2>
+      <p>BSIT student and grew up in a computer shop.</p>
+    </section>
+
+    <section class="card">
+      <h2>Goals / Dreams</h2>
+      <p>To give a better life to those around me and help others.</p>
+    </section>
+
+    <!-- Vue Gallery -->
+    <section id="gallery" class="card">
+      <h2>My Gallery</h2>
+      <div class="gallery">
+        <img v-for="img in images" :src="img" :key="img">
+      </div>
+    </section>
+
+    <!-- Vue Guestbook -->
+    <section id="guestbook" class="card">
+      <h2>Guestbook</h2>
+
+      <form @submit.prevent="addComment">
+        <input type="text" v-model="name" placeholder="Your name" required>
+        <textarea v-model="message" placeholder="Your message" required></textarea>
+        <button type="submit">Submit</button>
+      </form>
+
+      <ul>
+        <li v-for="(comment, index) in comments" :key="index">
+          <strong>{{ comment.name }}:</strong> {{ comment.message }}
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <!-- JavaScript -->
+  <script>
+    const btn = document.getElementById("toggleBtn");
+    btn.addEventListener("click", () => {
+      document.body.classList.toggle("dark");
+    });
+  </script>
+
+  <!-- Vue CDN -->
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+  <!-- Vue App -->
+  <script>
+    const { createApp } = Vue;
+
+    createApp({
+      data() {
+        return {
+          images: [
+            "images/pic1.jpg",
+            "images/pic2.jpg",
+            "images/pic3.jpg"
+          ],
+          name: "",
+          message: "",
+          comments: []
+        };
+      },
+      methods: {
+        addComment() {
+          this.comments.push({
+            name: this.name,
+            message: this.message
+          });
+          this.name = "";
+          this.message = "";
+        }
+      }
+    }).mount("main");
+  </script>
+
 </body>
 </html>
