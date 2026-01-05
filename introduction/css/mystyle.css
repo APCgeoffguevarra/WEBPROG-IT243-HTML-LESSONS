@@ -1,18 +1,73 @@
 body {
+  margin: 0;
+  font-family: Arial, sans-serif;
   background-image: url('KanyeGrad.webp');
   background-size: cover;
-  background-repeat: no-repeat;
   background-attachment: fixed;
 }
-h1 {
-  color: black;
-  font-weight: bold;
-  margin-left: 20px;
+
+body.dark {
+  background-image: none;
+  background-color: #0f172a;
+  color: white;
 }
 
-.center {
+nav {
+  background: #1e293b;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+}
+
+header {
   text-align: center;
-  color: black;
+  padding: 30px;
 }
 
+button {
+  padding: 8px 15px;
+  cursor: pointer;
+}
 
+main {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+}
+
+.card {
+  background: rgba(255,255,255,0.85);
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+}
+
+.gallery {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.gallery img {
+  width: 150px;
+  border-radius: 5px;
+}
+
+form input,
+form textarea {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 8px;
+}
+
+@media (max-width: 600px) {
+  .gallery {
+    justify-content: center;
+  }
+}
