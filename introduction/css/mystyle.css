@@ -1,73 +1,71 @@
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   background-image: url('KanyeGrad.webp');
   background-size: cover;
   background-attachment: fixed;
+  color: #0f172a;
 }
 
 body.dark {
   background-image: none;
   background-color: #0f172a;
-  color: white;
+  color: #f8fafc;
 }
 
 nav {
-  background: #1e293b;
-  padding: 10px;
+  background-color: #1e293b;
+  padding: 12px;
   display: flex;
   justify-content: center;
-  gap: 20px;
+  flex-wrap: wrap;
+  gap: 15px;
 }
 
 nav a {
-  color: white;
+  color: #f8fafc;
   text-decoration: none;
+  font-weight: bold;
 }
 
 header {
   text-align: center;
-  padding: 30px;
+  padding: 40px 20px;
+}
+
+.tagline {
+  font-size: 1rem;
+  opacity: 0.9;
 }
 
 button {
-  padding: 8px 15px;
+  padding: 8px 16px;
   cursor: pointer;
 }
 
 main {
-  max-width: 900px;
+  max-width: 1000px;
   margin: auto;
   padding: 20px;
 }
 
 .card {
-  background: rgba(255,255,255,0.85);
-  padding: 20px;
-  margin-bottom: 20px;
-  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 25px;
+  margin-bottom: 25px;
+  border-radius: 10px;
 }
 
-.gallery {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
+body.dark .card {
+  background-color: #1e293b;
 }
 
-.gallery img {
-  width: 150px;
-  border-radius: 5px;
+.hidden {
+  display: none;
 }
 
-form input,
-form textarea {
-  width: 100%;
-  margin-bottom: 10px;
-  padding: 8px;
-}
-
-@media (max-width: 600px) {
-  .gallery {
-    justify-content: center;
+@media (max-width: 768px) {
+  nav {
+    font-size: 0.9rem;
   }
 }
